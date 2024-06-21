@@ -33,31 +33,31 @@ public class MoveController : MonoBehaviour
                     characterSR.transform.localScale = new Vector3(characterSR.transform.localScale.x * -1, characterSR.transform.localScale.y, characterSR.transform.localScale.z);
                     
                 }
-        Debug.Log(Weapon.instance.isTargettingEnemy(gameObject, listEnemy));
+        //Debug.Log(Weapon.instance.isTargettingEnemy(gameObject, listEnemy));
 
-                if ( Weapon.instance.isTargettingEnemy(gameObject, listEnemy))
-                {
-                    GameObject objectEnemy = Weapon.instance.FindNearestObject(gameObject, listEnemy);
-                    if (objectEnemy.transform.position.x < transform.position.x)
-                    {
-                        isFacingRight = false;
-                        characterSR.transform.localScale = new Vector3(-1, 1, 1);
-                    }   
-                    else if (objectEnemy.transform.position.x > transform.position.x)
-                    {
-                        isFacingRight = true;
-                        characterSR.transform.localScale = new Vector3(1, 1, 1);
-                    }
+        //        if ( Weapon.instance.isTargettingEnemy(gameObject, listEnemy))
+        //        {
+        //            GameObject objectEnemy = Weapon.instance.FindNearestObject(gameObject, listEnemy);
+        //            if (objectEnemy.transform.position.x < transform.position.x)
+        //            {
+        //                isFacingRight = false;
+        //                characterSR.transform.localScale = new Vector3(-1, 1, 1);
+        //            }   
+        //            else if (objectEnemy.transform.position.x > transform.position.x)
+        //            {
+        //                isFacingRight = true;
+        //                characterSR.transform.localScale = new Vector3(1, 1, 1);
+        //            }
                         
 
-        }
-        else
-        {
-            var weaponGameObject = Weapon.instance.gameObject;
-            weaponGameObject.transform.rotation = Quaternion.identity;
-            if (isFacingRight) weaponGameObject.transform.localScale = new Vector3((float)0.5, (float)0.5, (float)0.5);
-            else if (!isFacingRight) weaponGameObject.transform.localScale = new Vector3((float)-0.5, (float)0.5, (float)0.5);
-        }
+        //}
+        //else
+        //{
+        //    var weaponGameObject = Weapon.instance.gameObject;
+        //    weaponGameObject.transform.rotation = Quaternion.identity;
+        //    if (isFacingRight) weaponGameObject.transform.localScale = new Vector3((float)0.5, (float)0.5, (float)0.5);
+        //    else if (!isFacingRight) weaponGameObject.transform.localScale = new Vector3((float)-0.5, (float)0.5, (float)0.5);
+        //}
             
         
         
