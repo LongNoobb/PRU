@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,20 +15,28 @@ public class MoveController : MonoBehaviour
     private Weapon weapon;
     public SpriteRenderer characterSR;
     public GameObject[] listEnemy;
+    private Animator anim;
     
     void Start()
     {
-         rd = gameObject.GetComponent<Rigidbody2D>();   
-    }
+         rd = gameObject.GetComponent<Rigidbody2D>();
+		anim = characterSR.GetComponent<Animator>();
+	}
 
     // Update is called once per frame
     void Update()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        rd.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
-       
-                if (((isFacingRight && moveInput.x < 0f) || (!isFacingRight && moveInput.x > 0f)))
+        if(Mathf.Abs(moveInput.x)>0.01 || Mathf.Abs(moveInput.y) > 0.01)
+        {
+            anim.SetBool("isMoving", true);
+        }else
+        {
+			anim.SetBool("isMoving", false);
+		}
+		rd.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
+        if (((isFacingRight && moveInput.x < 0f) || (!isFacingRight && moveInput.x > 0f)))
                 {
                     isFacingRight = !isFacingRight;
                     characterSR.transform.localScale = new Vector3(characterSR.transform.localScale.x * -1, characterSR.transform.localScale.y, characterSR.transform.localScale.z);
