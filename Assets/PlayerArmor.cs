@@ -8,7 +8,7 @@ public class PlayerArmor : MonoBehaviour
     public int currentArmor;
     public ArmorBar ArmorBar;
     public static PlayerArmor instance;
-    private int timeHealArmor = 5;
+    private float timeHealArmor = 5f;
 
     private float lastDamageTime;
     private bool isRegenerating = false;
@@ -26,10 +26,11 @@ public class PlayerArmor : MonoBehaviour
     private void Update()
     {
         
-        if (!isRegenerating && Time.time - lastDamageTime >= timeHealArmor && currentArmor < maxArmor)
+        if (!isRegenerating && (Time.time - lastDamageTime >= timeHealArmor) && currentArmor < maxArmor)
         {
             StartCoroutine(RegenArmor());
         }
+        Debug.Log(Time.time - lastDamageTime);
     }
 
     public void TakeDamageArmor(int damage)
@@ -41,9 +42,7 @@ public class PlayerArmor : MonoBehaviour
         }
         ArmorBar.UpdateBar(currentArmor, maxArmor);
 
-        
         lastDamageTime = Time.time;
-
         
         if (isRegenerating)
         {
@@ -56,12 +55,18 @@ public class PlayerArmor : MonoBehaviour
     {
         isRegenerating = true;
 
-        
         while (currentArmor < maxArmor)
         {
-            currentArmor = Mathf.Min(currentArmor + 1, maxArmor);
+            currentArmor++;
             ArmorBar.UpdateBar(currentArmor, maxArmor);
-            yield return new WaitForSeconds(1f); 
+            yield return new WaitForSeconds(1f);
+
+           
+            if (Time.time - lastDamageTime < timeHealArmor)
+            {
+                isRegenerating = false;
+                yield break;
+            }
         }
 
         isRegenerating = false;

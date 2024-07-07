@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int maxHealth;
     public int currentHealth;
     public HealthBar healthBar;
-    
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamegeHealth(int damage)
     {
-        currentHealth-=damage;
+        currentHealth -= damage;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -30,16 +30,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if(PlayerArmor.instance.currentArmor== PlayerArmor.instance.maxArmor)
+            if (PlayerArmor.instance.currentArmor <= PlayerArmor.instance.maxArmor && PlayerArmor.instance.currentArmor > 0)
             {
-                Debug.Log("111111111");
                 PlayerArmor.instance.TakeDamageArmor(1);
             }
-            else if(PlayerArmor.instance.currentArmor<=0)
+            else if (PlayerArmor.instance.currentArmor <= 0)
             {
                 TakeDamegeHealth(1);
             }
-            
+
         }
     }
 }
