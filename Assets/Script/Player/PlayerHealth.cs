@@ -26,19 +26,21 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    public void Update()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (other.CompareTag("bulletEnemy"))
         {
+            int damage = 1;
             if (PlayerArmor.instance.currentArmor <= PlayerArmor.instance.maxArmor && PlayerArmor.instance.currentArmor > 0)
             {
-                PlayerArmor.instance.TakeDamageArmor(1);
+                PlayerArmor.instance.TakeDamageArmor(damage);
             }
             else if (PlayerArmor.instance.currentArmor <= 0)
             {
-                TakeDamegeHealth(1);
+                TakeDamegeHealth(damage);
             }
-
+            // Optionally, you might want to destroy the bullet
+            Destroy(other.gameObject);
         }
     }
 }
