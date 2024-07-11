@@ -16,6 +16,7 @@ TagManager:
   - Gatling
   - K98
   - M4A1
+  - bulletEnemy
   layers:
   - Default
   - TransparentFX
