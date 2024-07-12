@@ -25,6 +25,10 @@ public class PlayerHealth : MonoBehaviour
         healthBar.UpdateBar(currentHealth, maxHealth);
     }
 
+    public void AddHealth()
+    {
+
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
