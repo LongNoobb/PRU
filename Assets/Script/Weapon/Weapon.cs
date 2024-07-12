@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject player;
     
     public static Weapon instance;
     public GameObject bullet;

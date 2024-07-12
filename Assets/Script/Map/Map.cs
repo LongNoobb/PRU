@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    private List<GameObject> listObjects = new List<GameObject>();
     private int countEnemyInActive = 0;
     // Start is called before the first frame update
     void Start()
@@ -14,29 +16,43 @@ public class Map : MonoBehaviour
             obj.SetActive(false);
         }
 
+        foreach (Transform obj in gameObject.transform)
+        {
+            if (obj.CompareTag("Enemy"))
+            {
+                listObjects.Add(obj.gameObject);
+            }
+        }
+        Debug.Log(listObjects.Count);
     }
 
     // Update is called once per frame
     
     void Update()
     {
-        GameObject[] childrenWithTag = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject obj in childrenWithTag)
+        
+        //GameObject[] childrenWithTag = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject obj in listObjects)
         {
             if (!obj.activeInHierarchy) 
             {
                 countEnemyInActive++;
             }
         }
-        if (countEnemyInActive == childrenWithTag.Length)
+        Debug.Log(countEnemyInActive);
+        if (countEnemyInActive == listObjects.Count)
         {
-            GameObject[] objects = GameObject.FindGameObjectsWithTag("WallBlock");
-            
-            foreach (GameObject obj in objects)
+            foreach (Transform obj in transform)
             {
-                obj.SetActive(false);
+                if (obj.CompareTag("WallBlock"))
+                {
+                    Debug.Log("WallBlock found in " + obj.name);
+
+                    obj.gameObject.SetActive(true);
+                }
             }
-            
+
         }
     }
 

@@ -6,96 +6,57 @@ using UnityEngine;
 public class GunPickScript : MonoBehaviour
 {
     public GunContainer weapon;
-    
+    public PlayerHealth PlayerHealth;
     private void Start()
     {
         weapon = GetComponentInChildren<GunContainer>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("DesertEagle") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(true);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[0];
-
-        }
-        else if (collision.gameObject.CompareTag("Gatling") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(true);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[1];
-
-        }
-        else if (collision.gameObject.CompareTag("K98") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(true);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[2];
-
-        }
-        else if (collision.gameObject.CompareTag("M4A1") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(true);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[3];
-
-        }
-    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("DesertEagle") && Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
+            Debug.Log("123");
+            GameObject[] weapons = weapon.weapons;
             
-            weapon.weapons[0].SetActive(true);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[0];
+
+            // Reset all weapons
+            for (int i = 0; i < weapons.Length; i++)
+            {
+                weapons[i].SetActive(false);
+            }
+
+            // Handle specific weapon activation
+            if (collision.gameObject.CompareTag("DesertEagle"))
+            {
+                weapons[0].SetActive(true);
+                Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeapon = weapons[0];
+            }
+            else if (collision.gameObject.CompareTag("Gatling"))
+            {
+                weapons[1].SetActive(true);
+                Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeapon = weapons[1];
+            }
+            else if (collision.gameObject.CompareTag("K98"))
+            {
+                weapons[2].SetActive(true);
+                Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeapon = weapons[2];
+            }
+            else if (collision.gameObject.CompareTag("M4A1"))
+            {
+                weapons[3].SetActive(true);
+                Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeapon = weapons[3];
+            }
+            else if (collision.gameObject.CompareTag("HealthBuff"))
+            {
+                collision.gameObject.SetActive(false);
+                PlayerHealth.AddHealth();
+                weapon.currentWeapon.SetActive(true);
+            }
             
-        }
-        else if (collision.gameObject.CompareTag("Gatling") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(true);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[1];
-
-        }
-        else if (collision.gameObject.CompareTag("K98") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(true);
-            weapon.weapons[3].SetActive(false);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[2];
-
-        }
-        else if (collision.gameObject.CompareTag("M4A1") && Input.GetKeyDown(KeyCode.F))
-        {
-            weapon.weapons[0].SetActive(false);
-            weapon.weapons[1].SetActive(false);
-            weapon.weapons[2].SetActive(false);
-            weapon.weapons[3].SetActive(true);
-            Script.instance.ChangeGun(weapon.currentWeapon);
-            weapon.currentWeapon = weapon.weapons[3];
-
         }
     }
 }

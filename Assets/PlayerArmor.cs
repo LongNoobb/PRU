@@ -30,7 +30,6 @@ public class PlayerArmor : MonoBehaviour
         {
             StartCoroutine(RegenArmor());
         }
-        Debug.Log(Time.time - lastDamageTime);
     }
 
     public void TakeDamageArmor(int damage)

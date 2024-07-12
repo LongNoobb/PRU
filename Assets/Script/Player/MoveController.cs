@@ -39,19 +39,36 @@ public class MoveController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Tile"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
+            
          GameObject[] objects = GameObject.FindGameObjectsWithTag("TileMap");
+            Debug.Log(objects.Length);
             foreach (GameObject obj in objects)
             {
-                Transform childTransform = obj.transform.Find("WallBlock");
-                if (childTransform != null)
+                foreach (Transform child in obj.transform)
                 {
-                    GameObject childGameObject = childTransform.gameObject;
-                    childGameObject.SetActive(true);
+                    if (child.name == "WallBlock")
+                    {
+                        Debug.Log("WallBlock found in " + obj.name);
+                        
+                        child.gameObject.SetActive(true);
+                    }
+                    //if (childTransform != null)
+                    //{
+                    //    Debug.Log("WallBlock found in " + obj.name);
+                    //    GameObject childGameObject = childTransform.gameObject;
+                    //    childGameObject.SetActive(true);
+                    //}
                 }
+                //    Transform childTransform = obj.transform.Find("WallBlock");
+                //if (childTransform != null)
+                //{
+                //    GameObject childGameObject = childTransform.gameObject;
+                //    childGameObject.SetActive(true);
+                //}
             }
-                    
+
         }
     }
 
