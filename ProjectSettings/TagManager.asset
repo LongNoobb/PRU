@@ -3,25 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - TileMap
-  - WallBlock
-  - Ground
-  - Enemy
-  - Wall
-  - bullet
-  - BlockBullet
-  - GunPick
-  - DesertEagle
-  - Gatling
-  - K98
-  - M4A1
-  - HealthBuff
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tile
+  - 
   - Water
   - UI
   - 
@@ -53,19 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 669011907
-    locked: 0
-  - name: GroundAtDoor
-    uniqueID: 1907438169
-    locked: 0
-  - name: Player
-    uniqueID: 1227665161
-    locked: 0
-  - name: Wall
-    uniqueID: 1102736703
-    locked: 0
-  - name: Bullet
-    uniqueID: 1214250687
     locked: 0
