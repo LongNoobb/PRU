@@ -15,7 +15,7 @@ public class GunPickScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("123");
+            Debug.Log("pick123");
             GameObject[] weapons = weapon.weapons;
             
 

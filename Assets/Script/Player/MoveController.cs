@@ -50,8 +50,6 @@ public class MoveController : MonoBehaviour
                 {
                     if (child.name == "WallBlock")
                     {
-                        Debug.Log("WallBlock found in " + obj.name);
-                        
                         child.gameObject.SetActive(true);
                     }
                     //if (childTransform != null)

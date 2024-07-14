@@ -75,6 +75,7 @@ public class EnemyMove : MonoBehaviour
     void MoveToTarget()
     {
         if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+        if(gameObject.activeInHierarchy)
         moveCoroutine = StartCoroutine(MoveToTargetCoroutine());
     }
     IEnumerator MoveToTargetCoroutine()

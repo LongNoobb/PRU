@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    private List<GameObject> listObjects = new List<GameObject>();
+    public List<GameObject> listObjects;
     private int countEnemyInActive = 0;
+    private GameObject[] objects;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("WallBlock");
+         objects = GameObject.FindGameObjectsWithTag("WallBlock");
+        Debug.Log("slgnskdnvkjsdnj: "+objects.Length);
         foreach (GameObject obj in objects)
         {
             obj.SetActive(false);
@@ -23,14 +25,14 @@ public class Map : MonoBehaviour
                 listObjects.Add(obj.gameObject);
             }
         }
-        Debug.Log(listObjects.Count);
+        Debug.Log("dfgbfjsdfhbgj: "+listObjects.Count);
     }
 
     // Update is called once per frame
     
     void Update()
     {
-        
+        countEnemyInActive = 0;
         //GameObject[] childrenWithTag = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject obj in listObjects)
@@ -41,16 +43,24 @@ public class Map : MonoBehaviour
             }
         }
         Debug.Log(countEnemyInActive);
+        Debug.Log(listObjects.Count);
+        Debug.Log(objects.Length);
+
+
         if (countEnemyInActive == listObjects.Count)
         {
-            foreach (Transform obj in transform)
-            {
-                if (obj.CompareTag("WallBlock"))
-                {
-                    Debug.Log("WallBlock found in " + obj.name);
+            //foreach (Transform obj in transform)
+            //{
+            //    if (obj.CompareTag("WallBlock"))
+            //    {
+            //        Debug.Log("WallBlock found in " + obj.name);
 
-                    obj.gameObject.SetActive(true);
-                }
+            //        obj.gameObject.SetActive(true);
+            //    }
+            //}
+            foreach(GameObject obj in objects)
+            {
+                obj.gameObject.SetActive(false);
             }
 
         }
