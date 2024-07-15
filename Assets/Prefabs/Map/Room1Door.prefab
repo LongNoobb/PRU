@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 459196828163434854}
   - component: {fileID: 2547331618105659410}
   - component: {fileID: 4883499601570794948}
+  - component: {fileID: 4220516326288457702}
   m_Layer: 0
   m_Name: WallBlock
   m_TagString: WallBlock
@@ -343,7 +344,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -371,6 +372,18 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1021100211335665153}
+--- !u!114 &4220516326288457702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021100211335665153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dca84a6a9dc546f090a180902c0c829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6781271400875237219
 GameObject:
   m_ObjectHideFlags: 0
@@ -7968,3 +7981,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e692539905c034c94fa40ebadd49c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listObjects: []

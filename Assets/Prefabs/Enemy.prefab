@@ -427,10 +427,10 @@ MonoBehaviour:
   roaming: 0
   seeker: {fileID: 8764020483807500294}
   updateContinuesPath: 1
-  isShootable: 1
-  bullet: {fileID: 8768566013835502801}
+  isShootable: 0
+  bullet: {fileID: 0}
   bulletSpeed: 9
-  timeBtwFire: 2
+  timeBtwFire: 5
 --- !u!50 &7337057515827667915
 Rigidbody2D:
   serializedVersion: 4
@@ -852,10 +852,5 @@ PrefabInstance:
 --- !u!4 &1770951270573217935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5873484748380869866, guid: e5b076a9c7dc44f13898c6f9da33b491, type: 3}
-  m_PrefabInstance: {fileID: 5265096702991371365}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8768566013835502801 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3504176382779058356, guid: e5b076a9c7dc44f13898c6f9da33b491, type: 3}
   m_PrefabInstance: {fileID: 5265096702991371365}
   m_PrefabAsset: {fileID: 0}
