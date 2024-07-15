@@ -6,6 +6,7 @@ public class RoomTrigger : MonoBehaviour
 {
     public List<EnemyMove> roomEnemies = new List<EnemyMove>();
 
+    public BossMove roomBoss = new BossMove();
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -15,6 +16,7 @@ public class RoomTrigger : MonoBehaviour
             {
                 enemy.PlayerEnteredRoom();
             }
+            roomBoss.PlayerEnteredRoom();
         }
     }
 
