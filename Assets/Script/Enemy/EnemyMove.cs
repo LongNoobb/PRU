@@ -119,7 +119,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // New method to handle player entering the room
+    //New method to handle player entering the room
     public void PlayerEnteredRoom()
     {
         Debug.Log("Enemy detected player entering the room");
@@ -127,10 +127,4 @@ public class EnemyMove : MonoBehaviour
         CalculatePath(); // Start path calculation immediately
     }
 
-    // New method to handle player leaving the room (if needed)
-    public void PlayerLeftRoom()
-    {
-        Debug.Log("Enemy detected player leaving the room");
-        playerInRoom = false;
-    }
 }

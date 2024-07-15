@@ -49,4 +49,19 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            int damage = 1;
+            if (PlayerArmor.instance.currentArmor <= PlayerArmor.instance.maxArmor && PlayerArmor.instance.currentArmor > 0)
+            {
+                PlayerArmor.instance.TakeDamageArmor(damage);
+            }
+            else if (PlayerArmor.instance.currentArmor <= 0)
+            {
+                TakeDamegeHealth(damage);
+            }
+        }
+    }
 }

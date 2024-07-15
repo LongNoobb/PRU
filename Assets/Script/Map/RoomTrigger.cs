@@ -18,15 +18,4 @@ public class RoomTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player exited the room");
-            foreach (var enemy in roomEnemies)
-            {
-                enemy.PlayerLeftRoom();
-            }
-        }
-    }
 }
