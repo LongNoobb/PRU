@@ -1349,7 +1349,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1102736703
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.0013889074, z: 0}
@@ -1744,7 +1744,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1102736703
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -6976,7 +6976,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 669011907
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.0013889074, z: 0}
@@ -7063,7 +7063,6 @@ GameObject:
   - component: {fileID: 4749484030552430594}
   - component: {fileID: 2314191835884184656}
   - component: {fileID: 2516415799413858625}
-  - component: {fileID: 767622435644444521}
   m_Layer: 3
   m_Name: Room2Door(parallel)
   m_TagString: TileMap
@@ -7248,18 +7247,6 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 4666399968113391141}
---- !u!114 &767622435644444521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666399968113391141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e692539905c034c94fa40ebadd49c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8427404735637678476
 GameObject:
   m_ObjectHideFlags: 0
@@ -7406,7 +7393,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7567,12 +7554,12 @@ Tilemap:
     m_Data: {fileID: -1787189186, guid: f96fde701942fe240b671a95b9188183, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -478143110, guid: f96fde701942fe240b671a95b9188183, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1398684146, guid: e02c3286eb0b42847a0444208e112325, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1895588666, guid: e02c3286eb0b42847a0444208e112325, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1895588666, guid: e02c3286eb0b42847a0444208e112325, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1398684146, guid: e02c3286eb0b42847a0444208e112325, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1938348996, guid: e02c3286eb0b42847a0444208e112325, type: 3}
   - m_RefCount: 1
