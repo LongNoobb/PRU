@@ -1,9 +1,7 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -22,26 +20,29 @@ public class EnemyMove : MonoBehaviour
     private float fireCooldown;
     Path path;
     Coroutine moveCoroutine;
-
+    private bool playerInRoom = false; // New variable to track player presence
 
     private EnemyHealth enemyHealth;
+
     void Start()
     {
-        enemyHealth=gameObject.GetComponent<EnemyHealth>();
-        //target = FindObjectOfType<MoveController>().gameObject.transform;
-        //CalculatePath();
+        enemyHealth = gameObject.GetComponent<EnemyHealth>();
         reachDestination = true;
         InvokeRepeating("CalculatePath", 0f, 0.5f);
     }
+
     private void Update()
     {
+        if (!playerInRoom) return; // Do nothing if the player is not in the room
+
         fireCooldown -= Time.deltaTime;
-        if(fireCooldown < 0)
+        if (fireCooldown < 0)
         {
             fireCooldown = timeBtwFire;
             EnemyFireBullet();
         }
     }
+
     void EnemyFireBullet()
     {
         var bulletTmp = Instantiate(bullet, transform.position, Quaternion.identity);
@@ -59,25 +60,30 @@ public class EnemyMove : MonoBehaviour
             enemyHealth.TakeDamage(1);
         }
     }
+
     void CalculatePath()
     {
-        
+        if (!playerInRoom) return; // Do nothing if the player is not in the room
+
         Vector2 target = FindTarget();
-        if (seeker.IsDone() && reachDestination || updateContinuesPath)
+        if (seeker.IsDone() && (reachDestination || updateContinuesPath))
             seeker.StartPath(transform.position, target, OnPathComplete);
     }
+
     void OnPathComplete(Path p)
     {
         if (p.error) return;
         path = p;
         MoveToTarget();
     }
+
     void MoveToTarget()
     {
         if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-        if(gameObject.activeInHierarchy)
-        moveCoroutine = StartCoroutine(MoveToTargetCoroutine());
+        if (gameObject.activeInHierarchy)
+            moveCoroutine = StartCoroutine(MoveToTargetCoroutine());
     }
+
     IEnumerator MoveToTargetCoroutine()
     {
         int currentWP = 0;
@@ -99,10 +105,11 @@ public class EnemyMove : MonoBehaviour
 
         reachDestination = true;
     }
+
     Vector2 FindTarget()
     {
         Vector3 playerPos = FindObjectOfType<MoveController>().transform.position;
-        if(roaming == true)
+        if (roaming == true)
         {
             return (Vector2)playerPos + (Random.Range(10f, 50f) * new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized);
         }
@@ -112,4 +119,18 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    // New method to handle player entering the room
+    public void PlayerEnteredRoom()
+    {
+        Debug.Log("Enemy detected player entering the room");
+        playerInRoom = true;
+        CalculatePath(); // Start path calculation immediately
+    }
+
+    // New method to handle player leaving the room (if needed)
+    public void PlayerLeftRoom()
+    {
+        Debug.Log("Enemy detected player leaving the room");
+        playerInRoom = false;
+    }
 }

@@ -16,7 +16,7 @@ public class bulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BlockBullet")
+        if (collision.gameObject.tag == "BlockBullet" || collision.gameObject.tag == "Wall"|| collision.gameObject.tag == "BlockBullet")
         {
             Destroy(gameObject);
         }
