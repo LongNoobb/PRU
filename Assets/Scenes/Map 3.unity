@@ -454,7 +454,7 @@ MonoBehaviour:
   TimeBtwFire: 0.5
   bulletForce: 20
   weapon: {fileID: 829660765}
-  characterSR: {fileID: 1382544356}
+  characterSR: {fileID: 0}
 --- !u!212 &829660768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.45, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -627,7 +627,7 @@ MonoBehaviour:
   TimeBtwFire: 0.1
   bulletForce: 20
   weapon: {fileID: 1065119623}
-  characterSR: {fileID: 1382544356}
+  characterSR: {fileID: 0}
 --- !u!212 &1065119626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84, y: 0.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -962,7 +962,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.84, y: 0.29}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.84, y: 0.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1016,7 +1016,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84, y: 0.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   TimeBtwFire: 0.2
   bulletForce: 20
   weapon: {fileID: 1590940724}
-  characterSR: {fileID: 1382544356}
+  characterSR: {fileID: 0}
 --- !u!212 &1590940726
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1124,7 +1124,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.82, y: 0.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   TimeBtwFire: 1
   bulletForce: 20
   weapon: {fileID: 1628581097}
-  characterSR: {fileID: 1382544356}
+  characterSR: {fileID: 0}
 --- !u!212 &1628581100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1252,7 +1252,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
