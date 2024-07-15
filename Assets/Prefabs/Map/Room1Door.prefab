@@ -96,16 +96,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 4, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 1
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -118,7 +108,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 1892a1e7b8df17743adef1cc89fdea41, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: b29d47830d2511540b33fc3c5ac583d9, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 60c470ffb235d7647857393febc7048c, type: 2}
@@ -133,7 +123,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -656432207, guid: e02c3286eb0b42847a0444208e112325, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: -1930336338, guid: e02c3286eb0b42847a0444208e112325, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -192436806, guid: e02c3286eb0b42847a0444208e112325, type: 3}
@@ -156,7 +146,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data:
       e00: 1
       e01: 0
@@ -177,7 +167,7 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 0
     m_Data: {r: 4.7697e-41, g: 4.7697e-41, b: 4.7697e-41, a: 4.7697e-41}
-  - m_RefCount: 6
+  - m_RefCount: 5
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -355,9 +345,9 @@ CompositeCollider2D:
   - m_Collider: {fileID: 2547331618105659410}
     m_ColliderPaths:
     - - X: 50000000
-        Y: 30000000
+        Y: 20000000
       - X: 40000000
-        Y: 30000000
+        Y: 20000000
       - X: 40000000
         Y: -30000000
       - X: 50000000
@@ -365,8 +355,8 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths:
     - - {x: 4.999971, y: -3}
-      - {x: 4.999971, y: 3}
-      - {x: 4, y: 2.999971}
+      - {x: 4.999971, y: 2}
+      - {x: 4, y: 1.9999708}
       - {x: 4.000029, y: -3}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -7783,7 +7773,6 @@ GameObject:
   - component: {fileID: 5852056712854511564}
   - component: {fileID: 4000801576771121063}
   - component: {fileID: 2658692828658279461}
-  - component: {fileID: 652791674894735040}
   m_Layer: 3
   m_Name: Room1Door
   m_TagString: TileMap
@@ -7969,16 +7958,3 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 8000615874537082583}
---- !u!114 &652791674894735040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8000615874537082583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e692539905c034c94fa40ebadd49c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listObjects: []

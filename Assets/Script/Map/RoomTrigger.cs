@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
+    public List<EnemyMove> roomEnemies = new List<EnemyMove>();
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered the room");
-            var enemies = FindObjectsOfType<EnemyMove>();
-            foreach (var enemy in enemies)
+            foreach (var enemy in roomEnemies)
             {
                 enemy.PlayerEnteredRoom();
             }
@@ -21,9 +22,8 @@ public class RoomTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player exit the room");
-            var enemies = FindObjectsOfType<EnemyMove>();
-            foreach (var enemy in enemies)
+            Debug.Log("Player exited the room");
+            foreach (var enemy in roomEnemies)
             {
                 enemy.PlayerLeftRoom();
             }

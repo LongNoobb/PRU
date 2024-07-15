@@ -23,12 +23,14 @@ public class EnemyMove : MonoBehaviour
     private bool playerInRoom = false; // New variable to track player presence
 
     private EnemyHealth enemyHealth;
+
     void Start()
     {
         enemyHealth = gameObject.GetComponent<EnemyHealth>();
         reachDestination = true;
         InvokeRepeating("CalculatePath", 0f, 0.5f);
     }
+
     private void Update()
     {
         if (!playerInRoom) return; // Do nothing if the player is not in the room
@@ -40,6 +42,7 @@ public class EnemyMove : MonoBehaviour
             EnemyFireBullet();
         }
     }
+
     void EnemyFireBullet()
     {
         var bulletTmp = Instantiate(bullet, transform.position, Quaternion.identity);
@@ -57,6 +60,7 @@ public class EnemyMove : MonoBehaviour
             enemyHealth.TakeDamage(1);
         }
     }
+
     void CalculatePath()
     {
         if (!playerInRoom) return; // Do nothing if the player is not in the room
@@ -65,18 +69,21 @@ public class EnemyMove : MonoBehaviour
         if (seeker.IsDone() && (reachDestination || updateContinuesPath))
             seeker.StartPath(transform.position, target, OnPathComplete);
     }
+
     void OnPathComplete(Path p)
     {
         if (p.error) return;
         path = p;
         MoveToTarget();
     }
+
     void MoveToTarget()
     {
         if (moveCoroutine != null) StopCoroutine(moveCoroutine);
         if (gameObject.activeInHierarchy)
             moveCoroutine = StartCoroutine(MoveToTargetCoroutine());
     }
+
     IEnumerator MoveToTargetCoroutine()
     {
         int currentWP = 0;
@@ -98,6 +105,7 @@ public class EnemyMove : MonoBehaviour
 
         reachDestination = true;
     }
+
     Vector2 FindTarget()
     {
         Vector3 playerPos = FindObjectOfType<MoveController>().transform.position;
