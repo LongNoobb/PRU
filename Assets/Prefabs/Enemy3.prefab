@@ -316,7 +316,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -15.182, y: 5.298, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 1}
+  m_LocalScale: {x: 16, y: 16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1770951270573217935}
@@ -427,8 +427,8 @@ MonoBehaviour:
   roaming: 0
   seeker: {fileID: 8764020483807500294}
   updateContinuesPath: 1
-  isShootable: 0
-  bullet: {fileID: 0}
+  isShootable: 1
+  bullet: {fileID: 8768566013835502801}
   bulletSpeed: 9
   timeBtwFire: 5
 --- !u!50 &7337057515827667915
@@ -555,7 +555,7 @@ Animator:
   m_GameObject: {fileID: 2048714331087712713}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b92d21a457a0284ca830688878fdea5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 86bbefc2af8b1d941a0cccdf979b35a6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -852,5 +852,10 @@ PrefabInstance:
 --- !u!4 &1770951270573217935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5873484748380869866, guid: e5b076a9c7dc44f13898c6f9da33b491, type: 3}
+  m_PrefabInstance: {fileID: 5265096702991371365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8768566013835502801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3504176382779058356, guid: e5b076a9c7dc44f13898c6f9da33b491, type: 3}
   m_PrefabInstance: {fileID: 5265096702991371365}
   m_PrefabAsset: {fileID: 0}
