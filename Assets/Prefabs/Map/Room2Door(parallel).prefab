@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7103552535088707121}
   m_Layer: 3
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 531773538055022162}
   - component: {fileID: 6242949583517376248}
   - component: {fileID: 6539167067241066174}
+  - component: {fileID: 1392346991695947499}
   m_Layer: 0
   m_Name: WallBlock
   m_TagString: WallBlock
@@ -1846,7 +1847,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1886,6 +1887,20 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 3081030837883278252}
+--- !u!114 &1392346991695947499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081030837883278252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dca84a6a9dc546f090a180902c0c829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomEnemies: []
+  roomBoss: {fileID: 0}
 --- !u!1 &3995127149528376117
 GameObject:
   m_ObjectHideFlags: 0

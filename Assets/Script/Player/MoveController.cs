@@ -14,16 +14,32 @@ public class MoveController : MonoBehaviour
     public SpriteRenderer characterSR;
     public GameObject[] listEnemy;
     private Animator anim;
-    
+    bool isGamePaused = false;
     void Start()
     {
          rd = gameObject.GetComponent<Rigidbody2D>();
 		anim = characterSR.GetComponent<Animator>();
-	}
+        isGamePaused = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isGamePaused)
+            {
+                PauseMenu.instance.Pause();
+                isGamePaused = true;
+            }
+            else
+            {
+                PauseMenu.instance.Resume();
+                isGamePaused = false;
+            }
+
+        }
+
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         if(Mathf.Abs(moveInput.x)>0.01 || Mathf.Abs(moveInput.y) > 0.01)

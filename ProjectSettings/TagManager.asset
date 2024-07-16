@@ -55,15 +55,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Wall
-    uniqueID: 3640135377
-    locked: 1
   - name: Ground
     uniqueID: 956237097
     locked: 0
   - name: WallBlock
     uniqueID: 3799886243
     locked: 0
+  - name: Wall
+    uniqueID: 3640135377
+    locked: 1
   - name: Player
     uniqueID: 3125548007
     locked: 0
