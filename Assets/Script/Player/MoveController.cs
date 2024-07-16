@@ -25,20 +25,20 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!isGamePaused)
-            {
-                PauseMenu.instance.Pause();
-                isGamePaused = true;
-            }
-            else
-            {
-                PauseMenu.instance.Resume();
-                isGamePaused = false;
-            }
+        //if (!GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (!isGamePaused)
+        //    {
+        //        PauseMenu.instance.Pause();
+        //        isGamePaused = true;
+        //    }
+        //    else
+        //    {
+        //        PauseMenu.instance.Resume();
+        //        isGamePaused = false;
+        //    }
 
-        }
+        //}
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
