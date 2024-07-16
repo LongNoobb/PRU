@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth;
+    public int maxHealth;
     public int currentHealth;
     public HealthBar healthBar;
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        if (GameManager.playerMaxHealth > 0 && GameManager.playerCurrentHealth > 0)
+        {
+            maxHealth = GameManager.playerMaxHealth;
+            currentHealth = GameManager.playerCurrentHealth;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
         healthBar.UpdateBar(currentHealth, maxHealth);
     }
 
-    public void TakeDamegeHealth(int damage)
+    public void TakeDamageHealth(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -23,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
             gameObject.SetActive(false);
         }
         healthBar.UpdateBar(currentHealth, maxHealth);
+
+        GameManager.playerCurrentHealth = currentHealth;
     }
 
     public void AddHealth()
@@ -30,6 +40,9 @@ public class PlayerHealth : MonoBehaviour
         maxHealth++;
         currentHealth++;
         healthBar.UpdateBar(currentHealth, maxHealth);
+
+        GameManager.playerMaxHealth = maxHealth;
+        GameManager.playerCurrentHealth = currentHealth;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -43,12 +56,12 @@ public class PlayerHealth : MonoBehaviour
             }
             else if (PlayerArmor.instance.currentArmor <= 0)
             {
-                TakeDamegeHealth(damage);
+                TakeDamageHealth(damage);
             }
-            // Optionally, you might want to destroy the bullet
             Destroy(other.gameObject);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -60,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
             }
             else if (PlayerArmor.instance.currentArmor <= 0)
             {
-                TakeDamegeHealth(damage);
+                TakeDamageHealth(damage);
             }
         }
     }

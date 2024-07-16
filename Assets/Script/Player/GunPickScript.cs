@@ -30,24 +30,28 @@ public class GunPickScript : MonoBehaviour
             {
                 weapons[0].SetActive(true);
                 Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeaponIndex = 0;
                 weapon.currentWeapon = weapons[0];
             }
             else if (collision.gameObject.CompareTag("Gatling"))
             {
                 weapons[1].SetActive(true);
                 Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeaponIndex = 1;
                 weapon.currentWeapon = weapons[1];
             }
             else if (collision.gameObject.CompareTag("K98"))
             {
                 weapons[2].SetActive(true);
                 Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeaponIndex = 2;
                 weapon.currentWeapon = weapons[2];
             }
             else if (collision.gameObject.CompareTag("M4A1"))
             {
                 weapons[3].SetActive(true);
                 Script.instance.ChangeGun(weapon.currentWeapon);
+                weapon.currentWeaponIndex = 3;
                 weapon.currentWeapon = weapons[3];
             }
             else if (collision.gameObject.CompareTag("HealthBuff"))
