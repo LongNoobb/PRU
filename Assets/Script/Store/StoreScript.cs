@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class StoreScript : MonoBehaviour
 {
-    public GameObject storeMenu;
     private bool inContactRange = false;
 
-    void Start()
-    {
-        storeMenu.SetActive(false);
-    }
     // Update is called once per frame
     void Update()
     {
         if (inContactRange && Input.GetKeyDown(KeyCode.F))
         {
-            storeMenu.SetActive(true);
+            Debug.Log("Store");
         }
     }
 
