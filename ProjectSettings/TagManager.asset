@@ -17,6 +17,7 @@ TagManager:
   - M4A1
   - K98
   - HealthBuff
+  - Store
   layers:
   - Default
   - TransparentFX

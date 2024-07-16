@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerArmor : MonoBehaviour
 {
-    [SerializeField] public int maxArmor;
+    public int maxArmor;
     public int currentArmor;
-    public ArmorBar ArmorBar;
+    public ArmorBar armorBar;
     public static PlayerArmor instance;
     private float timeHealArmor = 5f;
 
@@ -17,15 +17,23 @@ public class PlayerArmor : MonoBehaviour
     {
         instance = this;
     }
+
     private void Start()
     {
-        currentArmor = maxArmor;
-        ArmorBar.UpdateBar(currentArmor, maxArmor);
+        if (GameManager.playerMaxArmor > 0 && GameManager.playerCurrentArmor > 0)
+        {
+            maxArmor = GameManager.playerMaxArmor;
+            currentArmor = GameManager.playerCurrentArmor;
+        }
+        else
+        {
+            currentArmor = maxArmor;
+        }
+        armorBar.UpdateBar(currentArmor, maxArmor);
     }
 
     private void Update()
     {
-        
         if (!isRegenerating && (Time.time - lastDamageTime >= timeHealArmor) && currentArmor < maxArmor)
         {
             StartCoroutine(RegenArmor());
@@ -39,15 +47,17 @@ public class PlayerArmor : MonoBehaviour
         {
             currentArmor = 0;
         }
-        ArmorBar.UpdateBar(currentArmor, maxArmor);
+        armorBar.UpdateBar(currentArmor, maxArmor);
 
         lastDamageTime = Time.time;
-        
+
         if (isRegenerating)
         {
             StopCoroutine(RegenArmor());
             isRegenerating = false;
         }
+
+        GameManager.playerCurrentArmor = currentArmor;
     }
 
     private IEnumerator RegenArmor()
@@ -57,10 +67,9 @@ public class PlayerArmor : MonoBehaviour
         while (currentArmor < maxArmor)
         {
             currentArmor++;
-            ArmorBar.UpdateBar(currentArmor, maxArmor);
+            armorBar.UpdateBar(currentArmor, maxArmor);
             yield return new WaitForSeconds(1f);
 
-           
             if (Time.time - lastDamageTime < timeHealArmor)
             {
                 isRegenerating = false;
@@ -69,7 +78,6 @@ public class PlayerArmor : MonoBehaviour
         }
 
         isRegenerating = false;
+        GameManager.playerCurrentArmor = currentArmor;
     }
-
-
 }
