@@ -13,10 +13,11 @@ public class BossMove : MonoBehaviour
     public bool updateContinuesPath;
 
     public bool isShootable = false;
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public float bulletSpeed;
     public float timeBtwFire;
     private float fireCooldown;
+    public int numberOfBullets = 8;
     Path path;
     Coroutine moveCoroutine;
     private bool playerInRoom = false;
@@ -37,30 +38,22 @@ public class BossMove : MonoBehaviour
         fireCooldown -= Time.deltaTime;
         if (fireCooldown < 0)
         {
-            fireCooldown = timeBtwFire;
             BossFireBullets();
+            fireCooldown = timeBtwFire;
         }
     }
 
     void BossFireBullets()
     {
-        Vector3[] directions = new Vector3[]
+        for (int i = 0; i < numberOfBullets; i++)
         {
-            Vector3.right,
-            Vector3.left,
-            Vector3.up,
-            Vector3.down,
-            (Vector3.right + Vector3.up).normalized,
-            (Vector3.right + Vector3.down).normalized,
-            (Vector3.left + Vector3.up).normalized,
-            (Vector3.left + Vector3.down).normalized
-        };
+            float angle = Random.Range(0f, 360f);
+            Vector3 direction = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0f);
 
-        foreach (var dir in directions)
-        {
-            var bulletTmp = Instantiate(bullet, transform.position, Quaternion.identity);
-            Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
-            rb.AddForce(dir * bulletSpeed, ForceMode2D.Impulse);
+            // Instantiate bullet at boss position
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * bulletSpeed;
         }
     }
 
