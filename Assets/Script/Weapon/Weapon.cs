@@ -14,11 +14,11 @@ public class Weapon : MonoBehaviour
     private float timeBtwFire=0;
     public GameObject weapon;
     public SpriteRenderer characterSR;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
     //private void Awake()
     //{
@@ -27,15 +27,15 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateGun();
-        if (Input.GetMouseButton(0))
-        {
-            Fire();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            timeBtwFire = 0;
-        }
+        
+            RotateGun();
+            if (Input.GetMouseButton(0))
+            {
+                Fire();
+            }
+        
+       
+        
 
     }
     void RotateGun()
