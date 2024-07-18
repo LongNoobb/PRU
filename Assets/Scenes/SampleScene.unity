@@ -2352,8 +2352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 866766578}
   - component: {fileID: 866766577}
-  - component: {fileID: 866766576}
   - component: {fileID: 866766575}
+  - component: {fileID: 866766579}
   m_Layer: 0
   m_Name: Healthbuff
   m_TagString: HealthBuff
@@ -2406,20 +2406,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.726715, y: 2.9619043}
   m_EdgeRadius: 0
---- !u!114 &866766576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866766574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a645f4c2fe09447a7a61699007e0d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triangle: {fileID: 1363637775}
-  spriteRenderer: {fileID: 0}
 --- !u!212 &866766577
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2459,7 +2445,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1640470779
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2488,6 +2474,20 @@ Transform:
   - {fileID: 1363637777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &866766579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866766574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069a884674b90ec41957f08fe8be5408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1726567848}
+  triangle: {fileID: 1363637775}
 --- !u!1001 &891627835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4332,7 +4332,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1169419289
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 212764735, guid: 02fb9bef65988d54082319e07b39d756, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5068,12 +5068,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 885076265249712327, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 885076265249712327, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
       propertyPath: m_SortingLayerID
       value: -1640470779
       objectReference: {fileID: 0}
+    - target: {fileID: 1249958071714107645, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
+      propertyPath: pickBuff
+      value: 
+      objectReference: {fileID: 866766579}
     - target: {fileID: 1249958071714107645, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
       propertyPath: PlayerHealth
       value: 
@@ -5084,7 +5088,7 @@ PrefabInstance:
       objectReference: {fileID: 158093600}
     - target: {fileID: 5252294898031546472, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5252294898031546472, guid: b8c755ac03399de4aae2e48cac574b5e, type: 3}
       propertyPath: m_SortingLayerID
