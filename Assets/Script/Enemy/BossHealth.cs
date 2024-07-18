@@ -9,6 +9,7 @@ public class BossHealth : MonoBehaviour
     public float maxHealth;
     public GameObject healthBarUI;
     public Slider slider;
+    public RoomTrigger roomTrigger;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            roomTrigger?.EnemyDefeated();
         }
 
         if (currentHealth > maxHealth * 2)
@@ -49,6 +51,7 @@ public class BossHealth : MonoBehaviour
         {
             currentHealth = 0;
             gameObject.SetActive(false);
+            roomTrigger?.EnemyDefeated();
         }
 
         slider.value = CalculateHealth();

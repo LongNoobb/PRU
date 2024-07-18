@@ -18,23 +18,30 @@ public class RoomTrigger : MonoBehaviour
         doorCollider = GetComponent<CompositeCollider2D>();
         doorCollider.isTrigger = true;
         totalEnemies = roomEnemies.Count;
+        if (roomBoss != null)
+        {
+            totalEnemies++; // Include the boss in the total count if present
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !doorClosed)
         {
             Debug.Log("Player entered the room");
-            StartCoroutine(CloseDoorAfterDelay());
-            foreach (var enemy in roomEnemies)
+            if (roomEnemies.Count > 0 || roomBoss != null)
             {
-                enemy.PlayerEnteredRoom();
-                enemy.GetComponent<EnemyHealth>().roomTrigger = this; // Link EnemyHealth to RoomTrigger
-            }
-            if (roomBoss != null)
-            {
-                roomBoss.PlayerEnteredRoom();
-                roomBoss.GetComponent<EnemyHealth>().roomTrigger = this; // Link Boss to RoomTrigger
-                totalEnemies++; // Include the boss in the total count
+                StartCoroutine(CloseDoorAfterDelay());
+                foreach (var enemy in roomEnemies)
+                {
+                    enemy.PlayerEnteredRoom();
+                    enemy.GetComponent<EnemyHealth>().roomTrigger = this; // Link EnemyHealth to RoomTrigger
+                }
+                if (roomBoss != null)
+                {
+                    roomBoss.PlayerEnteredRoom();
+                    roomBoss.GetComponent<EnemyHealth>().roomTrigger = this; // Link Boss to RoomTrigger
+                    
+                }
             }
         }
     }
