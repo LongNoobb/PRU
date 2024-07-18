@@ -7,7 +7,7 @@ public class Portal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FindObjectOfType<SceneLoader>().LoadNewScene("Map 3");
+            FindObjectOfType<SceneLoader>().LoadNewScene("Map 2");
         }
     }
 }
