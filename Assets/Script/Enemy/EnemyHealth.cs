@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth;
     public GameObject healthBarUI;
     public Slider slider;
+    public RoomTrigger roomTrigger;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            roomTrigger?.EnemyDefeated();
         }
 
         if (currentHealth > maxHealth)
@@ -50,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         {
             currentHealth = 0;
             gameObject.SetActive(false);
+            roomTrigger?.EnemyDefeated();
         }
 
         slider.value = CalculateHealth();
