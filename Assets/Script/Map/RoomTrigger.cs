@@ -12,6 +12,7 @@ public class RoomTrigger : MonoBehaviour
     private bool doorClosed = false;
     private int totalEnemies;
     private int defeatedEnemies = 0;
+    public ChestScript openChest;
 
     private void Start()
     {
@@ -69,9 +70,10 @@ public class RoomTrigger : MonoBehaviour
 
     private void OpenDoor()
     {
-        doorClosed = false;
+        //doorClosed = false;
         doorCollider.isTrigger = true; // Disable the collider to allow passage
         Debug.Log("Door opened");
+        if(openChest!=null) openChest.ChestAppear();
     }
 
 }

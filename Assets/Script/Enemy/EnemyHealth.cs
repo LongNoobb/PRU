@@ -44,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
         return currentHealth / maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -52,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         {
             currentHealth = 0;
             gameObject.SetActive(false);
+            pointManager.instance.AddPoint(Random.Range(5,10));
             roomTrigger?.EnemyDefeated();
         }
 

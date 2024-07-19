@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 225408010010962426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0015, y: 0.003, z: 0.01}
+  m_LocalScale: {x: 0.001, y: 0.002, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3316943793718062093}
@@ -362,7 +362,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1169419289
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f373267f4b97e8488d5e0695074f0ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -407,8 +407,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0013200443, y: -0.00048027042}
-  m_Size: {x: 0.15270527, y: 0.19949467}
+  m_Offset: {x: 0.0016259551, y: 0.0024657547}
+  m_Size: {x: 0.1043905, y: 0.17710489}
   m_Direction: 0
 --- !u!114 &8195392045450608209
 MonoBehaviour:
@@ -429,8 +429,9 @@ MonoBehaviour:
   updateContinuesPath: 1
   isShootable: 1
   bullet: {fileID: 8768566013835502801}
-  bulletSpeed: 9
-  timeBtwFire: 5
+  bulletSpeed: 15
+  timeBtwFire: 1
+  gunContainer: {fileID: 0}
 --- !u!50 &7337057515827667915
 Rigidbody2D:
   serializedVersion: 4
@@ -443,7 +444,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -517,6 +518,7 @@ MonoBehaviour:
   maxHealth: 10
   healthBarUI: {fileID: 225408010010962426}
   slider: {fileID: 4021386551180619823}
+  roomTrigger: {fileID: 0}
 --- !u!114 &8764020483807500294
 MonoBehaviour:
   m_ObjectHideFlags: 0

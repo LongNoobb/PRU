@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GunPickScript : MonoBehaviour
+public class PickScript : MonoBehaviour
 {
     public GunContainer weapon;
     public PlayerHealth PlayerHealth;
@@ -11,9 +11,11 @@ public class GunPickScript : MonoBehaviour
     private bool isGatling = false;
     private bool isK98 = false;
     private bool isM4A1 = false;
-    private bool isBuff = false;
+    private bool isBuffHealth = false;
+    private bool isBuffArmor = false;
+    private bool isHeal = false;
     private GameObject[] weapons;
-    public PickBuffScript pickBuff;
+
     private void Start()
     {
         weapon = GetComponentInChildren<GunContainer>();
@@ -59,10 +61,23 @@ public class GunPickScript : MonoBehaviour
                 weapon.currentWeapon = weapons[2];
                 isK98 = false;
             }
-            else if (isBuff)
+            else if (isBuffHealth)
             {
-                pickBuff.PickBuff();
-                isBuff = false;
+                PickBuffScript.instance.PickBuff();
+                PlayerHealth.AddHealth();
+                isBuffHealth = false;
+            }
+            else if (isBuffArmor)
+            {
+                PickBuffScript.instance.PickBuff();
+                PlayerArmor.instance.AddArmor();
+                isBuffArmor = false;
+            }
+            else if (isHeal)
+            {
+                PickBuffScript.instance.PickBuff();
+                PlayerHealth.Heal();
+                isHeal = false;
             }
 
         }
@@ -101,8 +116,16 @@ public class GunPickScript : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("HealthBuff"))
         {
-            isBuff = true;
+            isBuffHealth = true;
             Debug.Log("Bufffff");
+        }
+        else if (collision.gameObject.CompareTag("ArmorBuff"))
+        {
+            isBuffArmor = true;
+        }
+        else if (collision.gameObject.CompareTag("HealPotion"))
+        {
+            isHeal = true;
         }
 
 
@@ -113,6 +136,8 @@ public class GunPickScript : MonoBehaviour
         isGatling = false;
         isK98 = false;
         isM4A1 = false;
-        isBuff = false;
+        isBuffHealth = false;
+        isBuffArmor = false;
+        isHeal = false;
     }
 }

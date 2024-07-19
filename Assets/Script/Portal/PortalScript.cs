@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
@@ -7,7 +6,8 @@ public class Portal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FindObjectOfType<SceneLoader>().LoadNewScene("Map 2");
+            GameManager.currentMap++;
+            FindObjectOfType<SceneLoader>().LoadNewScene("Map " + GameManager.currentMap);
         }
     }
 }

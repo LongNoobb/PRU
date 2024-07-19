@@ -5897,7 +5897,7 @@ Tilemap:
   m_GameObject: {fileID: 8425609730610421682}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -10, y: -14, z: 0}
+  - first: {x: -10, y: -13, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -5907,7 +5907,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -9, y: -14, z: 0}
+  - first: {x: -9, y: -13, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -5917,7 +5917,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -8, y: -14, z: 0}
+  - first: {x: -8, y: -13, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -5927,7 +5927,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -7, y: -14, z: 0}
+  - first: {x: -7, y: -13, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -5937,7 +5937,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -6, y: -14, z: 0}
+  - first: {x: -6, y: -13, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -6127,7 +6127,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -495081053
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.0013889074, z: 0}
@@ -6256,13 +6256,13 @@ CompositeCollider2D:
       - X: 50000000
         Y: -30000000
     - - X: -50000000
-        Y: -130000000
+        Y: -120000000
+      - X: -100000000
+        Y: -120000000
       - X: -100000000
         Y: -130000000
-      - X: -100000000
-        Y: -140000000
       - X: -50000000
-        Y: -140000000
+        Y: -130000000
   m_CompositePaths:
     m_Paths:
     - - {x: 4.999971, y: 1.0194445}
@@ -6273,10 +6273,10 @@ CompositeCollider2D:
       - {x: 4.999971, y: 1}
       - {x: 4, y: 0.99997073}
       - {x: 4.000029, y: -3}
-    - - {x: -5.000029, y: -14}
-      - {x: -5.000029, y: -13}
-      - {x: -10, y: -13.00003}
-      - {x: -9.99997, y: -14}
+    - - {x: -5.000029, y: -13}
+      - {x: -5.000029, y: -12}
+      - {x: -10, y: -12.00003}
+      - {x: -9.99997, y: -13}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -6295,6 +6295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomEnemies: []
   roomBoss: {fileID: 0}
+  openChest: {fileID: 0}
 --- !u!1 &9047409515037132779
 GameObject:
   m_ObjectHideFlags: 0

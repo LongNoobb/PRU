@@ -45,6 +45,19 @@ public class PlayerHealth : MonoBehaviour
         GameManager.playerCurrentHealth = currentHealth;
     }
 
+    public void Heal()
+    {
+        currentHealth+=2;
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth=maxHealth;
+        }
+        healthBar.UpdateBar(currentHealth, maxHealth);
+
+        GameManager.playerMaxHealth = maxHealth;
+        GameManager.playerCurrentHealth = currentHealth;
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("bulletEnemy"))

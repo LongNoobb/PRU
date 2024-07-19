@@ -12,7 +12,6 @@ public class MoveController : MonoBehaviour
     private Vector3 moveInput;
     public Rigidbody2D rd;
     public SpriteRenderer characterSR;
-    public GameObject[] listEnemy;
     private Animator anim;
     public bool isGamePaused = false;
     void Start()
@@ -54,41 +53,4 @@ public class MoveController : MonoBehaviour
 		rd.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            
-         GameObject[] objects = GameObject.FindGameObjectsWithTag("TileMap");
-            Debug.Log(objects.Length);
-            foreach (GameObject obj in objects)
-            {
-                foreach (Transform child in obj.transform)
-                {
-                    if (child.name == "WallBlock")
-                    {
-                        child.gameObject.SetActive(true);
-                    }
-                    //if (childTransform != null)
-                    //{
-                    //    Debug.Log("WallBlock found in " + obj.name);
-                    //    GameObject childGameObject = childTransform.gameObject;
-                    //    childGameObject.SetActive(true);
-                    //}
-                }
-                //    Transform childTransform = obj.transform.Find("WallBlock");
-                //if (childTransform != null)
-                //{
-                //    GameObject childGameObject = childTransform.gameObject;
-                //    childGameObject.SetActive(true);
-                //}
-            }
-
-        }
-    }
-
-   
-
-
 }

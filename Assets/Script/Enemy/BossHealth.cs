@@ -43,7 +43,7 @@ public class BossHealth : MonoBehaviour
         return currentHealth / (maxHealth * 2);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 

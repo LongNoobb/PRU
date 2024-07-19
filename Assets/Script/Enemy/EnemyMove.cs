@@ -24,6 +24,8 @@ public class EnemyMove : MonoBehaviour
 
     private EnemyHealth enemyHealth;
 
+
+    public GunContainer gunContainer;
     void Start()
     {
         enemyHealth = gameObject.GetComponent<EnemyHealth>();
@@ -57,7 +59,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
         {
-            enemyHealth.TakeDamage(1);
+            enemyHealth.TakeDamage(gunContainer.currentWeapon.GetComponent<Weapon>().BulletDame);
         }
     }
 

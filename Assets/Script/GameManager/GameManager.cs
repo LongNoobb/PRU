@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static int playerMaxArmor;
     public static int playerCurrentArmor;
     public static int currentWeaponIndex;
+    public static int currentMap;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
         playerMaxArmor = 6;
         playerCurrentArmor = playerMaxArmor;
         currentWeaponIndex = 0;
+        currentMap = 1;
     }
 
     public void Initialize(int maxHealth, int currentHealth, int maxArmor, int currentArmor)

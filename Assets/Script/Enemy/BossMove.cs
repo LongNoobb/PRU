@@ -23,7 +23,7 @@ public class BossMove : MonoBehaviour
     private bool playerInRoom = false;
 
     private BossHealth bossHealth;
-
+    public GunContainer gunContainer;
     void Start()
     {
         bossHealth = gameObject.GetComponent<BossHealth>();
@@ -61,7 +61,7 @@ public class BossMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
         {
-            bossHealth.TakeDamage(1);
+            bossHealth.TakeDamage(gunContainer.currentWeapon.GetComponent<Weapon>().BulletDame);
         }
     }
 

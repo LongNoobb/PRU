@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1102736703
-  m_SortingLayer: 3
+  m_SortingLayerID: -1640470779
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 212764735, guid: 02fb9bef65988d54082319e07b39d756, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e9cd6cc637fc146bbe2e32ffc9078c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   bullet: {fileID: 543673483746720328, guid: 19d3502a44c6d9546abdc455cf39a18d, type: 3}
   firePos: {fileID: 6116783597259529786}
   TimeBtwFire: 0.1
-  bulletForce: 20
+  bulletForce: 30
+  BulletDame: 1
   weapon: {fileID: 3441845527766759151}
   characterSR: {fileID: 0}
 --- !u!1 &7177834096869833597
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1227665161
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

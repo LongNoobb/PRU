@@ -80,4 +80,13 @@ public class PlayerArmor : MonoBehaviour
         isRegenerating = false;
         GameManager.playerCurrentArmor = currentArmor;
     }
+
+    public void AddArmor()
+    {
+        maxArmor++;
+        currentArmor++;
+        armorBar.UpdateBar(currentArmor, maxArmor);
+        GameManager.playerMaxArmor = maxArmor;
+        GameManager.playerCurrentArmor = currentArmor;
+    }
 }

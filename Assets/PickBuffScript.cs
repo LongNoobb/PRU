@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PickBuffScript : MonoBehaviour
 {
-    public PlayerHealth health;
+    //public PlayerHealth health;
     public GameObject triangle;
-
+    public static PickBuffScript instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         triangle.SetActive(false);
@@ -14,8 +18,9 @@ public class PickBuffScript : MonoBehaviour
     public void PickBuff()
     {
         gameObject.SetActive(false);
-        health.AddHealth();
-       
+        Debug.Log(gameObject.name);
+        //health.AddHealth();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
